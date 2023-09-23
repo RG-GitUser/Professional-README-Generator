@@ -1,0 +1,11 @@
+*
+#generateButton {
+    font-size: 18px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+#readmeContainer {
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+}
