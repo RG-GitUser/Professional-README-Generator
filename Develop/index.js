@@ -5,21 +5,52 @@ const inquirer = require('inquirer');
 // TODO: Create an array of questions for user input
 
 
-const fs = require('fs');
-const readline = require('readline');
+const questions = [
+  {
+    type: 'input',
+    name: 'title',
+    message: 'Enter project title:',
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
+  },
+  {
+    type: 'input',
+    name: 'description',
+    message: 'Enter project description',
 
-rl.question('Enter your project name: ', (projectName) => {
-  const template = `# ${projectName}\n\n## Description\n\n[Description of your project]\n\n## Installation\n\n[Installation instructions]\n\n## Usage\n\n[Usage instructions]\n`;
-
-  fs.writeFileSync('README.md', template, 'utf8');
-  console.log('README.md file created successfully.');
-  rl.close();
-});
+  },
+  {
+    type: 'input',
+    name: 'installation',
+    message: 'Provide installation instructions:',
+  },
+  {
+    type: 'input',
+    name: 'usage',
+    message: 'Explain how to use your project:',
+  },
+  {
+    type: 'list',
+    name: 'license',
+    message: 'Choose a license for your project:',
+    choices: ['MIT', 'Apache 2.0', 'GPL', 'None'],
+  },
+  {
+    type: 'input',
+    name: 'contributing',
+    message: 'Explain how others can contribute to your project:',
+  },
+  {
+    type: 'input',
+    name: 'tests',
+    message: 'Provide testing instructions:',
+  },
+  {
+    type: 'input',
+    name: 'email',
+    message: 'Enter your email address:',
+  },
+];
+  
 
 
 // TODO: Create a function to write README file
