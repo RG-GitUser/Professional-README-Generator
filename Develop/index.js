@@ -15,11 +15,6 @@ function runInquirerPrompts(){
       },
       {
         type: 'input',
-        name: 'tableOfContents',
-        message: 'Enter a table of contents:',
-      },
-      {
-        type: 'input',
         name: 'description',
         message: 'Enter a description for your repository:',
       },
@@ -35,7 +30,7 @@ function runInquirerPrompts(){
       },
       {
         type: 'list',
-        name: 'licenseType',
+        name: 'license',
         message: 'Choose a license for your repository:',
         choices: ['MIT', 'Apache 2.0', 'GNU GPLv3', 'ISC', 'None'],
       },
@@ -83,13 +78,11 @@ ${licenseBadge}
 ${answers.description}
 
 ## Table of Contents
-- [Installation](#installation)
-- [Usage](#usage)
-- [License](#license)
-- [Questions](#questions)
+- [Installation](#Installation)
+- [Usage](#Usage)
+- [License](#License)
+- [Questions](#Questions)
 
-## Table of contents
-${answers.tableOfContents}
 
 ## Installation
 ${answers.installation} <a name="installation"></a>
@@ -167,54 +160,4 @@ function writeREADME(filename, content) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Function to write README file
-// function writeREADME(filename, content) {
-//   fs.writeFile(filename, content, (err) => {
-//     if (err) {
-//       console.error('Error writing README file:', err);
-//     } else {
-//       console.log('README file generated successfully.');
-//     }
-//   });
-// }
-
-// // Function to initialize the application
-// function initializeApp() {
-//   // Define your array of questions here (as shown in previous examples)
-
-//   // Prompt the user for input
-//   inquirer
-//     .prompt(questions)
-//     .then((answers) => {
-//       const readmeContent = generateREADME(answers);
-
-//       // Write the README.md file
-//       writeREADME('README.md', readmeContent);
-//     });
-// }
-
-// // Call the initializeApp function to start the application
-// initializeApp();
-
-
-
-// // Function call to initialize app
 
