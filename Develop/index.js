@@ -25,6 +25,11 @@ function runInquirerPrompts(){
       },
       {
         type: 'input',
+        name: 'usage',
+        message: 'What is this useful for:',
+      },
+      {
+        type: 'input',
         name: 'installation',
         message: 'Enter the installation instructions:',
       },
@@ -35,7 +40,7 @@ function runInquirerPrompts(){
       },
       {
         type: 'list',
-        name: 'license',
+        name: 'licenseType',
         message: 'Choose a license for your repository:',
         choices: ['MIT', 'Apache 2.0', 'GNU GPLv3', 'ISC', 'None'],
       },
@@ -90,6 +95,12 @@ ${answers.usage}
 ## License
 ${answers.license}
 ${licenseNotice}
+
+## License Type
+${answers.licenseType}
+
+##GitHub
+${answers.githubUsername}
 `;
 return readmeContent;
 }
@@ -143,15 +154,15 @@ function writeREADME(filename, content) {
 function generateQuestionsSection(githubUsername) {
   // Generate the "Questions" section with the GitHub username and link
   if (githubUsername) {
-    const githubProfileLink = `https://github.com/RG-GitUser/Professional-README-Generator/${RG-GitUser}`;
+    const githubProfileLink = `https://github.com/RG-GitUser/Professional-README-Generator/${githubUsername}`;
     return `
 ## Questions
-If any questions, feel free to reach out! 
+If any questions, feel free to reach out!
 
-GitHub: [${'RG-GitUser'}](${'https://github.com/RG-GitUser'})
+GitHub: [${githubUsername}](${githubProfileLink})
 `;
   } else {
-    return '';
+    return ''; // If no GitHub username provided, don't include the section
   }
 }
 
