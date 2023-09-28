@@ -1,9 +1,9 @@
-// TODO: Include packages needed for this application
+
 const inquirer = require('inquirer');
 const fs = require('fs');
 
 
-// TODO: Create an array of questions for user input
+
 
 function runInquirerPrompts(){
   inquirer
@@ -34,11 +34,6 @@ function runInquirerPrompts(){
         message: 'Enter the installation instructions:',
       },
       {
-        type: 'input',
-        name: 'license',
-        message: 'Enter the license for your repository:',
-      },
-      {
         type: 'list',
         name: 'licenseType',
         message: 'Choose a license for your repository:',
@@ -48,6 +43,16 @@ function runInquirerPrompts(){
         type: 'input',
         name: 'githubUsername',
         message: 'Enter your GitHub username:',
+      },
+      {
+        type: 'input',
+        name: 'githubLink',
+        message: 'Enter your GitHub profile link:',
+      },
+      {
+        type: 'input',
+        name: 'email',
+        message: 'Enter your email address:',
       },
 
     ])
@@ -61,18 +66,12 @@ function runInquirerPrompts(){
     });
   }
 
-
-// Call the function to start prompting for information
   runInquirerPrompts();
-
-
-// TODO: Create a function to initialize app
-
 
 
 // Function to generate the README content
 function generateREADME(answers) {
-  // Create the README content as a string
+
   const licenseBadge = generateLicenseBadge(answers.license);
   const licenseNotice = generateLicenseNotice(answers.license);
   
@@ -83,31 +82,42 @@ ${licenseBadge}
 ## Description
 ${answers.description}
 
+## Table of Contents
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+- [Questions](#questions)
+
 ## Table of contents
 ${answers.tableOfContents}
 
 ## Installation
-${answers.installation}
+${answers.installation} <a name="installation"></a>
 
 ## Usage
-${answers.usage}
+${answers.usage} <a name="usage"></a>
 
 ## License
-${answers.license}
+${answers.license} <a name="license"></a>
 ${licenseNotice}
 
-## License Type
-${answers.licenseType}
+## Questions
+${answers.githubUsername} <a name="questions"></a>
 
-##GitHub
-${answers.githubUsername}
+##### How to reach me
+
+###### My GitHub
+${answers.githubLink}
+
+###### My email 
+${answers.email}
 `;
 return readmeContent;
 }
 
 
 function generateLicenseBadge(license) {
-  // Generate a license badge based on the selected license
+
   switch (license) {
     case 'MIT':
       return '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)';
@@ -151,20 +161,9 @@ function writeREADME(filename, content) {
   });
 }
 
-function generateQuestionsSection(githubUsername) {
-  // Generate the "Questions" section with the GitHub username and link
-  if (githubUsername) {
-    const githubProfileLink = `https://github.com/RG-GitUser/Professional-README-Generator/${githubUsername}`;
-    return `
-## Questions
-If any questions, feel free to reach out!
 
-GitHub: [${githubUsername}](${githubProfileLink})
-`;
-  } else {
-    return ''; // If no GitHub username provided, don't include the section
-  }
-}
+
+
 
 
 
