@@ -19,7 +19,7 @@ In this project, I have demonstrated how I can use node.js to create a professio
 Users are able to create a professional README document from their terminal. 
 
 Screenshot:
-![image](https://github.com/RG-GitUser/Weather-Dashboard/assets/139709113/fa9ba6f2-8314-4842-9012-270e80c840ee)
+![image](https://github.com/RG-GitUser/Professional-README-Generator/blob/main/Assets/ProfessionalREADMEscreenshot.jpg)
 
 
 ## Credits 
